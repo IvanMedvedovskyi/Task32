@@ -38,8 +38,8 @@ function updateClock() {
 
   // Обновляем часы
   if (hours !== previousHours) {
-    hour1.src = hours.toString().padStart(2, "0")[0] + ".jpg";
-    hour2.src = hours.toString().padStart(2, "0")[1] + ".jpg";
+    hour1.src = "images/" + hours.toString().padStart(2, "0")[0] + ".jpg";
+    hour2.src = "images/" + hours.toString().padStart(2, "0")[1] + ".jpg";
 
     // Применяем класс анимации
     hour1.parentElement.classList.add("animate__animated", "animate__headShake");
@@ -56,8 +56,8 @@ function updateClock() {
 
   // Обновляем минуты
   if (minutes !== previousMinutes) {
-    minute1.src = minutes.toString().padStart(2, "0")[0] + ".jpg";
-    minute2.src = minutes.toString().padStart(2, "0")[1] + ".jpg";
+    minute1.src =  "images/" + minutes.toString().padStart(2, "0")[0] + ".jpg";
+    minute2.src = "images/" + minutes.toString().padStart(2, "0")[1] + ".jpg";
 
     // Применяем класс анимации
     minute1.parentElement.classList.add("animate__animated", "animate__headShake");
@@ -74,8 +74,8 @@ function updateClock() {
 
   // Обновляем секунды
   if (seconds !== previousSeconds) {
-    second1.src = seconds.toString().padStart(2, "0")[0] + ".jpg";
-    second2.src = seconds.toString().padStart(2, "0")[1] + ".jpg";
+    second1.src = "images/" + seconds.toString().padStart(2, "0")[0] + ".jpg";
+    second2.src = "images/" + seconds.toString().padStart(2, "0")[1] + ".jpg";
 
     // Применяем класс анимации
     second1.parentElement.classList.add("animate__animated", "animate__headShake");
