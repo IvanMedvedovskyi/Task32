@@ -29,6 +29,16 @@ function onAnimationEnd(element) {
   element.classList.remove("animate__headShake");
 }
 
+function updateElement(element, value, number) {
+  element.src = "images/" + value.toString().padStart(2, "0")[number] + ".jpg";
+  element.parentElement.classList.add("animate__animated", "animate__headShake");
+
+  element.parentElement.addEventListener("animationend", function () {
+    onAnimationEnd(element.parentElement);
+  });
+
+}
+
 function updateClock() {
   // Получаем текущее время
   const now = new Date();
@@ -38,56 +48,20 @@ function updateClock() {
 
   // Обновляем часы
   if (hours !== previousHours) {
-    hour1.src = "images/" + hours.toString().padStart(2, "0")[0] + ".jpg";
-    hour2.src = "images/" + hours.toString().padStart(2, "0")[1] + ".jpg";
-
-    // Применяем класс анимации
-    hour1.parentElement.classList.add("animate__animated", "animate__headShake");
-    hour2.parentElement.classList.add("animate__animated", "animate__headShake");
-
-    // Устанавливаем обработчик события окончания анимации
-    hour1.parentElement.addEventListener("animationend", function () {
-      onAnimationEnd(hour1.parentElement);
-    });
-    hour2.parentElement.addEventListener("animationend", function () {
-      onAnimationEnd(hour2.parentElement);
-    });
+    updateElement(hour1, hours, 0);
+    updateElement(hour2, hours, 1);
   }
 
   // Обновляем минуты
   if (minutes !== previousMinutes) {
-    minute1.src =  "images/" + minutes.toString().padStart(2, "0")[0] + ".jpg";
-    minute2.src = "images/" + minutes.toString().padStart(2, "0")[1] + ".jpg";
-
-    // Применяем класс анимации
-    minute1.parentElement.classList.add("animate__animated", "animate__headShake");
-    minute2.parentElement.classList.add("animate__animated", "animate__headShake");
-
-    // Устанавливаем обработчик события окончания анимации
-    minute1.parentElement.addEventListener("animationend", function () {
-      onAnimationEnd(minute1.parentElement);
-    });
-    minute2.parentElement.addEventListener("animationend", function () {
-      onAnimationEnd(minute2.parentElement);
-    });
+    updateElement(minute1, minutes, 0);
+    updateElement(minute2, minutes, 1);
   }
 
   // Обновляем секунды
   if (seconds !== previousSeconds) {
-    second1.src = "images/" + seconds.toString().padStart(2, "0")[0] + ".jpg";
-    second2.src = "images/" + seconds.toString().padStart(2, "0")[1] + ".jpg";
-
-    // Применяем класс анимации
-    second1.parentElement.classList.add("animate__animated", "animate__headShake");
-    second2.parentElement.classList.add("animate__animated", "animate__headShake");
-
-    // Устанавливаем обработчик события окончания анимации
-    second1.parentElement.addEventListener("animationend", function () {
-      onAnimationEnd(second1.parentElement);
-    });
-    second2.parentElement.addEventListener("animationend", function () {
-      onAnimationEnd(second2.parentElement);
-    });
+    updateElement(second1, seconds, 0);
+    updateElement(second2, seconds, 1);
   }
 
   // Обновляем предыдущие значения
